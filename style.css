@@ -1,0 +1,999 @@
+/* WebbEss Utkastmall 1 */
+
+/* Typsnitt */
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700&display=swap");
+
+/* Animationer */
+@import url("https://unpkg.com/aos@2.3.1/dist/aos.css");
+
+
+/* ==========================================================================
+Generellt 
+========================================================================== */
+:root {
+  /* 	Layout  */
+  --col-padding: 3rem;
+  --menu-height: 8rem;
+  --menu-height-scrolled: 8rem;
+  --section-width: 140rem;
+
+  /* 	Colors */
+  --primary-dark-color: 160, 154, 188;
+  --primary-color: 83, 58, 123;
+  --primary-light-color: 233, 230, 239;
+
+  --black-color: 0, 0, 0;
+  --gray-dark-color: 75, 75, 75;
+  --gray-light-color: 230, 235, 236;
+  --white-color: 255, 255, 255;
+
+  /* 	Typography */
+  --base-size: 1.6rem;
+
+  /* 	Mobile nav */
+  --activate-mobile-menu: 1000;
+  --mobile-menu-height: 7rem;
+  --mobile-menu-bg: var(--white-color);
+  --menu-color: rgb(var(--black-color));
+}
+
+/* ==========================================================================
+Generellt 
+========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+}
+
+article,
+aside,
+footer,
+header,
+nav,
+section,
+figcaption,
+figure,
+main {
+  display: block;
+}
+
+/* Object fit */
+.of-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.of-wrapper img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  max-width: none;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+}
+
+@supports (object-fit: cover) {
+  .of-wrapper img {
+    position: static;
+    transform: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .of-wrapper img.contain {
+    object-fit: contain;
+  }
+}
+
+/* Layout
+========================================================================== */
+.section-block {
+  padding: 10rem 5rem;
+}
+
+.section-block-wrapper {
+  max-width: var(--section-width);
+  margin: 0 auto;
+}
+
+.block-container-text {
+  padding-left: 5rem;
+}
+
+/* Paddings */
+.pt-0 .section-block,
+.pt-0:not(.section-wrapper) {
+  padding-top: 0rem;
+}
+
+.pb-0 .section-block,
+.pb-0:not(.section-block) {
+  padding-bottom: 0;
+}
+
+.p-2 .section-block,
+.p-2:not(.section-wrapper) {
+  padding: 3rem;
+}
+
+.p-3 .section-block,
+.p-3:not(.section-wrapper) {
+  padding: 3rem;
+}
+
+/* Margins */
+.mt-3 {
+  margin-top: 3rem;
+}
+
+/* Bredder */
+
+@media only screen and (max-width: 1024px) {
+  .section-block {
+    padding: 8rem 3rem;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  .section-block {
+    padding: 5rem 2rem;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  .block-container-text {
+    padding-left: 0rem;
+  }
+}
+
+/* Text och typsnitt
+========================================================================== */
+body {
+  font-family: "League Spartan", sans-serif;
+}
+
+/* Rubriker */
+.text-label {
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding-bottom: 1em;
+}
+
+.section-title {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.2;
+  padding-bottom: 0.5em;
+  margin: 0rem;
+}
+
+.small-title {
+  font-size: 2.5rem;
+  line-height: 1.4;
+  padding-bottom: 0.7em;
+}
+
+.ingress {
+  font-size: calc(var(--base-size) * 1.2);
+  font-weight: 700;
+}
+
+/* Brodtext och lankar */
+p {
+  padding-bottom: 0.5em;
+  margin: 0;
+  font-size: var(--base-size);
+  line-height: 1.8;
+  font-style: normal;
+  font-family: inherit;
+  font-weight: 400;
+}
+
+li {
+  font-size: var(--base-size);
+  font-family: inherit;
+  line-height: 1.8;
+  font-weight: 400;
+  color: rgb(var(--gray-dark-color));
+}
+
+a {
+  font-size: inherit;
+  font-weight: 400;
+  text-decoration: underline;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Ovriga klasser */
+.text-block {
+  max-width: 70rem;
+}
+
+.text-block-center {
+  max-width: 70rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-block.mw-85 {
+  max-width: 85rem;
+}
+
+.text-bold {
+  font-weight: 700;
+}
+
+.text-center {
+  text-align: center;
+}
+
+@media only screen and (max-width: 1200px) {
+  .section-title {
+    font-size: 3.8rem;
+  }
+
+  .small-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  .section-title {
+    font-size: 2.5rem;
+  }
+
+  .small-title {
+    font-size: 2rem;
+  }
+}
+
+/* Knappar och speciella lankar
+========================================================================== */
+.btn-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.btn-wrapper.center {
+  justify-content: center;
+}
+
+/* Knappar */
+.btn {
+  min-width: 20rem;
+  padding: 1.4rem 2rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  border-radius: 2rem;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.4s ease;
+}
+
+.btn-primary-filled {
+  color: rgb(var(--white-color));
+  border: 1px solid rgb(var(--primary-color));
+  background: rgb(var(--primary-color));
+}
+
+.btn-primary-filled:hover {
+  border: 1px solid rgb(var(--primary-color));
+  background-color: transparent;
+  color: rgb(var(--primary-color));
+}
+
+/* Arrow link */
+.arrow-link {
+  font-size: var(--base-size);
+  padding-right: 1rem;
+  color: rgb(var(--gray-dark-color));
+}
+
+.arrow-link::after {
+  content: " \f105";
+  display: inline-block;
+  margin-left: 1rem;
+  font-weight: 400;
+  font-family: "Font Awesome 5 Pro";
+  transition: transform 0.4s ease;
+}
+
+.arrow-link:hover::after {
+  transform: translateX(1rem);
+  transition: transform 0.4s ease;
+}
+
+/* Cirkelikon */
+.circle-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  padding: 0;
+  margin: 0.5rem;
+  font-size: 0;
+  color: rgb(var(--primary-color));
+  text-decoration: none;
+  border-radius: 50%;
+  background-color: rgb(var(--white-color));
+  transition: 0.3s ease;
+}
+
+.circle-icon:hover {
+  color: rgb(var(--white-color));
+  background-color: rgb(var(--primary-color));
+}
+
+.circle-icon i:before,
+.circle-icon em:before {
+  font-size: 1.4rem;
+}
+
+@media only screen and (max-width: 480px) {
+  .btn {
+    display: block;
+    width: 100%;
+  }
+}
+
+/* Farger
+========================================================================== */
+/* Bakgrunder */
+.bg-primary {
+  background-color: rgb(var(--primary-color));
+}
+
+.bg-white {
+  background-color: rgb(var(--white-color));
+}
+
+.bg-gray-light {
+  background-color: rgb(var(--gray-light-color));
+}
+
+.bg-gradient {
+    background: rgb(var(--primary-color));
+    background: linear-gradient(34deg, rgba(var(--primary-dark-color),1) 0%, rgba(var(--primary-color)) 100%);
+}
+
+/* Overlays */
+
+/* Text */
+.text-primary {
+  color: rgb(var(--primary-color));
+}
+
+.text-white {
+  color: rgb(var(--white-color));
+}
+
+.text-gradient {
+    background: rgb(var(--primary-color));
+    background: linear-gradient(34deg, rgba(var(--primary-dark-color),1) 0%, rgba(var(--primary-color)) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Bakgrundsbild
+========================================================================== */
+.bg-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-image-wrapper {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Grafiska element
+========================================================================== */
+/* Linje genom element */
+.line-through-gradient {
+  position: relative;
+}
+
+.line-through-gradient::before {
+  position: absolute;
+  content: "";
+  display: block;
+  height: calc(100% - 1rem);
+  width: 2px;
+  top: 2rem;
+  left: 3.5rem;
+  background: rgb(var(--primary-color));
+  background: linear-gradient(34deg, rgba(var(--primary-dark-color),1) 0%, rgba(var(--primary-color)) 100%);
+}
+
+@media only screen and (max-width: 650px) {
+  .line-through-gradient::before {
+    left: 2rem;
+  }
+}
+
+/* Cards
+========================================================================== */
+.cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Specifika bredder */
+.cards-wrapper.w-33 .card-item {
+  width: calc((100% / 3) - 2rem);
+  margin: 1rem;
+}
+
+.cards-wrapper.w-50 .card-item {
+  width: calc((100% / 2) - 2rem);
+  margin: 1rem;
+}
+
+.cards-wrapper.w-100-0 .card-item {
+  width: 100%;
+}
+
+/* Generellt */
+a.card-item {
+  transition: 0.3s ease;
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 1050px) {
+  .cards-wrapper.w-33 .card-item {
+    width: calc((100% / 2) - 2rem);
+    margin: 1rem;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  /* Bredder */
+  .cards-wrapper.w-50 .card-item {
+    width: 100%;
+    margin: 1rem 0;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .cards-wrapper.w-33 .card-item {
+    width: 100%;
+    margin: 1rem 0;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  /* Paddings */
+  .card-item.p-3,
+  .card-item .p-3 {
+    padding: 2rem;
+  }
+}
+
+/* Card 2-2 */
+.card-2-2 .card-item {
+  border-radius: 1rem;
+}
+
+.card-2-2 a.card-item:hover {
+    background-color: rgb(var(--primary-light-color));
+    transition: all 0.3s ease;
+}
+
+.card-2-2 .card-header {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 7rem;
+  height: 7rem;
+  margin: 0 2rem;
+  border-radius: 0 0 1rem 1rem;
+}
+
+.card-2-2 .card-header i {
+  font-size: 3rem;
+}
+
+@media only screen and (max-width: 480px) {
+  .card-2-2 .card-header {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .card-2-2 .card-header i {
+    font-size: 2rem;
+  }
+}
+
+/* Card 2-3 */
+.card-2-3 a.card-item:hover {
+  background: rgb(var(--gray-light-color));
+}
+
+.card-2-3 .card-header {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 7rem;
+  height: 7rem;
+  margin-bottom: 2rem;
+  border-radius: 50%;
+}
+
+.card-2-3 .card-header i {
+  font-size: 3rem;
+}
+
+/* Card 2-5 */
+.card-2-5 .card-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.card-2-5 .card-header {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  background: rgb(var(--primary-color));
+  background: linear-gradient(34deg, rgba(var(--primary-dark-color),1) 0%, rgba(var(--primary-color)) 100%);
+  border: 2px solid rgb(var(--white-color));
+}
+
+.card-2-5 .card-body {
+  flex: 1 1 0px;
+  padding: 0 3rem;
+}
+
+@media only screen and (max-width: 650px) {
+  .card-2-5 .card-header {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .card-2-5 .card-header i {
+    font-size: 1.8rem;
+  }
+}
+
+/* Card 3-4 */
+.card-3-4 .card-item {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 3rem;
+  border-radius: 1rem;
+}
+
+.card-3-4 .card-body {
+  flex: 1 1 0px;
+}
+
+.card-3-4 .contact-item i {
+  margin-right: 1rem;
+}
+
+/* Split wrapper
+========================================================================== */
+.split-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.split-wrapper.reverse {
+  flex-direction: row-reverse;
+}
+
+.split-content {
+  width: 50%;
+  padding: 5rem;
+}
+
+.split-image {
+  width: 50%;
+}
+
+/* Speciella bredder */
+.split-wrapper .w-70 {
+  width: 70%;
+}
+
+.split-wrapper .w-30 {
+  width: 30%;
+}
+
+/* hojder i split */
+.mh-40 {
+  max-height: 40rem;
+}
+
+/* Centrera content */
+.split-wrapper .align-center {
+  align-self: center;
+}
+
+@media screen and (max-width: 1300px) {
+  .split-content {
+    width: 50%;
+    padding: 4rem 3rem;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .split-content,
+  .split-wrapper .w-30,
+  .split-wrapper .w-70 {
+    width: 100%;
+  }
+
+  .split-content {
+    width: 100%;
+  }
+
+  .split-image {
+    width: 100%;
+    min-height: 20rem;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .split-wrapper {
+    background: transparent;
+  }
+
+  .split-content {
+    padding: 0 0 3rem 0;
+  }
+}
+
+/* Header / Navigation
+========================================================================== */
+header {
+  z-index: 8;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  transition: 0.3s ease;
+}
+
+@supports not (position: sticky) {
+  header {
+    position: relative;
+  }
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  padding: 0 5rem;
+}
+
+/* Logo */
+.header-logo {
+  margin: 0 auto 0 0;
+  z-index: 9;
+}
+
+.header-logo a {
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: rgb(var(--primary-color));
+}
+
+/* Nav */
+.TemplateMenu {
+  position: relative;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.TemplateMenu li {
+  position: relative;
+}
+
+.TemplateMenu a {
+  display: block;
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: rgb(var(--black-color));
+  text-decoration: none;
+  padding: 0 2rem;
+}
+
+.TemplateMenu > li > a:hover {
+  color: rgb(var(--primary-color));
+}
+
+/* CTA  */
+.header-cta-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0;
+  margin: 0 0 0 2rem;
+  list-style: none;
+}
+
+.header-cta-wrapper li {
+  margin: 0 0.5rem;
+}
+
+.header-cta-wrapper .btn {
+  min-width: unset;
+  padding: 1rem 2rem;
+  line-height: 1;
+}
+
+/* Mobilmeny */
+.mobile-menu .container {
+  height: var(--mobile-menu-height);
+}
+
+.mobile-menu .hamburger {
+  display: block;
+  align-self: center;
+  margin: 0 -1rem 0 1rem;
+}
+
+@media only screen and (max-width: 1024px) {
+  header .container {
+    padding: 0 3rem;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  header .container {
+    padding: 0 2rem;
+  }
+
+  .header-cta-wrapper .btn {
+    min-width: unset;
+    padding: 0.7rem 1.5rem;
+  }
+}
+
+/* ==========================================================================
+Startsida
+========================================================================== */
+
+/* Top-section
+========================================================================== */
+.top-section {
+  display: flex;
+  align-items: flex-end;
+  min-height: 80vh;
+  background-color: rgb(var(--black-color), 0.7);
+}
+
+.top-section .section-title {
+  font-size: 6.2rem;
+  font-weight: 400;
+  color: rgb(var(--white-color));
+}
+
+.top-section .text-block {
+    max-width: 80rem;
+}
+
+.top-section p {
+  max-width: 55rem;
+  color: rgb(var(--white-color));
+}
+
+@media only screen and (max-width: 1200px) {
+  .top-section .section-title {
+    font-size: 4.5rem;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  .top-section .section-title {
+    font-size: 3rem;
+  }
+}
+
+/* ==========================================================================
+Undersidor
+========================================================================== */
+
+/* Hero - Grundkod
+========================================================================== */
+.hero .section-block {
+  display: flex;
+  align-items: center;
+  min-height: 40rem;
+  background: rgb(var(--primary-color));
+  background: linear-gradient(34deg, rgba(var(--primary-dark-color),1) 0%, rgba(var(--primary-color)) 100%);
+}
+
+.hero .section-block-wrapper {
+  width: 100%;
+}
+
+.hero .section-title {
+  font-size: 6.2rem;
+}
+
+@media only screen and (max-width: 580px) {
+  .hero .section-block {
+    min-height: 20rem;
+  }
+
+  .hero .section-title {
+    font-size: 3rem;
+  }
+}
+
+/* For arbetsgivare - Section-steps
+========================================================================== */
+.section-steps .split-content {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.section-steps .split-image {
+  position: sticky;
+  top: calc(var(--menu-height-scrolled) * 2);
+  align-self: flex-start;
+}
+
+@media only screen and (max-width: 1000px) {
+  .section-steps .split-content {
+    display: flex;
+    order: 1;
+  }
+
+  .section-steps .split-image {
+    position: unset;
+    padding: 5rem;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  .section-steps .split-image {
+    padding: 5rem 2rem;
+  }
+}
+
+/* ==========================================================================
+Footer
+========================================================================== */
+.footer {
+    background: rgb(var(--primary-color));
+    background: linear-gradient(34deg, rgba(var(--primary-dark-color),1) 0%, rgba(var(--primary-color)) 100%);
+    padding: 0 5rem;
+}
+
+.footer-container {
+  max-width: var(--section-width);
+  margin: 0 auto;
+}
+
+/* Footer top */
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 8rem 0 5rem;
+  border-bottom: 1px solid rgb(var(--white-color), 0.5);
+}
+
+.footer-menu {
+  width: 20%;
+  margin: 0 0 3rem;
+}
+
+.footer-menu-large {
+  width: 30%;
+}
+
+.footer .text-label {
+  color: rgb(var(--white-color));
+}
+
+.footer ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.footer-top li,
+.footer-top p,
+.footer-top a:not(.circle-icon) {
+  color: rgb(var(--white-color));
+}
+
+/* Footer bottom */
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.footer-bottom p,
+.footer-bottom a {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: rgb(var(--white-color));
+}
+
+/* WebbEss Stamp  */
+.footer .webbess-stamp {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.webbess-stamp img {
+  width: 2.5rem;
+  margin-left: 1rem;
+  filter: invert();
+}
+
+@media only screen and (max-width: 1024px) {
+  .footer {
+    padding: 0 3rem;
+  }
+
+  /* Footer top */
+  .footer-menu {
+    width: 48%;
+  }
+
+  .footer-menu-large {
+    width: 100%;
+  }
+
+  .footer-menu-large p {
+    max-width: 55rem;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  /* Footer top */
+  .footer-menu,
+  .footer-menu-large {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  .footer {
+    padding: 0 2rem;
+  }
+}
